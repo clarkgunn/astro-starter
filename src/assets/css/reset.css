@@ -1,0 +1,71 @@
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Box Size Everything */
+/* stylelint-disable-next-line no-descending-specificity */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Allow percent based heights. */
+html,
+body {
+  /* Percent height avoids overlap with pop-in-out mobile browser UI. */
+  height: 100%;
+}
+
+/* Root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Better text underline */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  /* ~1.5 for paragraph, ~1.1 for headings. */
+  line-height: calc(1em + 0.5rem);
+
+  /* Ovoid text overflows */
+  overflow-wrap: break-word;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

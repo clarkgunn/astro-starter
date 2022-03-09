@@ -5,7 +5,9 @@ This starter project is build upon the (awesome) [Astro Static Site Builder](htt
 [Live demo](https://accessible-astro.markteekman.nl/)
 
 ## Getting started
+
 Run the following commands in your project folder to get started:
+
 ```console
 npm install && npm start
 ```
@@ -25,7 +27,7 @@ In this starter you'll find a couple of things:
 
 ## Utitilies
 
-👉🏻 &nbsp;  _Note: Examples are included in the **index.astro** file_
+👉🏻 &nbsp; _Note: Examples are included in the **index.astro** file_
 
 This starter contains some extra **Design System** like utility classes to aid in the global layout of your project. All of this can be found in the `public/scss/base` directory, and compiles in the `globals.scss` file. Using these primitives is totally optional, use or remove at your own preference :) What it contains:
 
@@ -76,7 +78,8 @@ There are a couple of basic animations which you can throw on your HTML elements
 <div data-animation="fade-in" data-animation-delay="0.25s">
   <p>I've got a fancy fade-in animation after 0.25s.</p>
 </div>
-<div data-animation="fade-in" data-animation-delay="0.5s">>
+<div data-animation="fade-in" data-animation-delay="0.5s">
+  >
   <p>I've got a fancy fade-in animation after 0.5s.</p>
 </div>
 ```

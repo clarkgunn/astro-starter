@@ -1,0 +1,27 @@
+[build]
+  publish = "public"
+  command = "npm run lint"
+
+# Build
+[[plugins]]
+  package = "@helloample/netlify-plugin-replace"
+
+[[plugins]]
+  package = "netlify-plugin-image-optim"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Analyze
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+[[plugins]]
+  package = "@netlify/plugin-a11y"
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+
+# Notify
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"

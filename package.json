@@ -4,13 +4,34 @@
   "private": true,
   "scripts": {
     "start": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "format": "prettier --write '**/*.{ts,js,json,md,css,html}'",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint src/**/*.js --fix",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@helloample/netlify-plugin-replace": "^1.1.4",
+    "@netlify/plugin-a11y": "^1.0.0-alpha.6",
     "astro": "^0.23.2",
     "autoprefixer": "^10.4.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-astro": "^0.0.12",
     "sass": "^1.49.9",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint": "^14.5.3",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix",
+    "*.{ts,js,json,md,css,html}": "prettier --write"
   }
 }
