@@ -1,0 +1,16 @@
+{
+  "name": "accessible-astro-starter",
+  "version": "1.2.3",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "astro": "^0.23.2",
+    "autoprefixer": "^10.4.0",
+    "sass": "^1.49.9",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  }
+}
