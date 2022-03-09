@@ -8,8 +8,8 @@
     "build": "astro build",
     "format": "prettier --write '**/*.{ts,js,json,md,css,html}'",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint src/**/*.js --fix",
-    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:js": "eslint --fix",
+    "lint:css": "stylelint src/**/*.css --fix",
     "prepare": "husky install",
     "postBuild": "sed -i '' 's#http://localhost:3000#${env:DEPLOY_PRIME_URL}#g' dist/sitemap.xml"
   },
