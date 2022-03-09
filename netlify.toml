@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run lint && npm run build && npm run postBuild"
+  command = "npm run lint && npm run build"
 
 # Build
 [[plugins]]
@@ -8,6 +8,9 @@
 
 [[plugins]]
   package = "netlify-plugin-image-optim"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
 
 # Analyze
 [[plugins]]
