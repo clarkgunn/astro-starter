@@ -1,0 +1,6 @@
+:root {
+  --container: min(100% - 2rem, 70rem);
+  --small: 24em;
+  --medium: 48em;
+  --large: 75rem;
+}

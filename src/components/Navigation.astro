@@ -1,4 +1,4 @@
-<nav id="main-navigation">
+<nav aria-label="Main Navigation">
   <ul>
     <li><a href="#" aria-current="page">Home</a></li>
     <li><a href="#">About</a></li>
@@ -8,75 +8,71 @@
 
 <script>
   // variables
-  const mainNav = document.querySelector('#main-navigation')
-  const mainMenu = mainNav.querySelector('ul')
+  const mainMenu = document.querySelector('[aria-label="Main Navigation"] ul');
 
   // execution
-  mainMenu && mainMenu.addEventListener('keydown', event => {
-    const currentMenuItem = event.target.closest('li')
-    const menuItems = [...mainMenu.querySelectorAll('li')]
-    const index = menuItems.findIndex(item => item === currentMenuItem)
+  mainMenu &&
+    mainMenu.addEventListener('keydown', (event) => {
+      const currentMenuItem = event.target.closest('li');
+      const menuItems = [...mainMenu.querySelectorAll('li')];
+      const index = menuItems.findIndex((item) => item === currentMenuItem);
 
-    const key = event.key
-    let targetItem
+      const key = event.key;
+      let targetItem;
 
-    // move right on arrow right
-    if (key === 'ArrowRight') {
-      // if it's the last item, go the first, else go to next
-      if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
-        targetItem = menuItems[0]
-      } else {
-        targetItem = menuItems[index + 1]
+      // move right on arrow right
+      if (key === 'ArrowRight') {
+        // if it's the last item, go the first, else go to next
+        if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
+          targetItem = menuItems[0];
+        } else {
+          targetItem = menuItems[index + 1];
+        }
       }
-    }
 
-    // move left on arrow left
-    if (key === 'ArrowLeft') {
-      // if it's the first item, go the last, else go to next
-      if (menuItems.indexOf(currentMenuItem) === 0) {
-        targetItem = menuItems[menuItems.length - 1]
-      } else {
-        targetItem = menuItems[index - 1]
+      // move left on arrow left
+      if (key === 'ArrowLeft') {
+        // if it's the first item, go the last, else go to next
+        if (menuItems.indexOf(currentMenuItem) === 0) {
+          targetItem = menuItems[menuItems.length - 1];
+        } else {
+          targetItem = menuItems[index - 1];
+        }
       }
-    }
 
-    // escape to go back to first item
-    if (key === 'Escape') {
-      targetItem = menuItems[0]
-    }
+      // escape to go back to first item
+      if (key === 'Escape') {
+        targetItem = menuItems[0];
+      }
 
-    // set focus on target item
-    if (targetItem) {
-      targetItem.querySelector('a, button, input').focus()
-    }
-  })
-
+      // set focus on target item
+      if (targetItem) {
+        targetItem.querySelector('a, button, input').focus();
+      }
+    });
 </script>
 
-<style lang="scss">
-  @use '../assets/scss/base/breakpoint' as *;
+<style>
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
 
-  nav {
-    display: none;
+  .show {
+    display: block;
     flex-basis: 100%;
+  }
 
-    @include breakpoint(medium) {
-      display: block;
-      flex-basis: auto;
-    }
+  .show > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
-    &.show {
-      display: block;
-    }
-
-    > ul {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-
-      @include breakpoint(medium) {
-        flex-direction: row;
-      }
+  @media (max-width: 48em) {
+    nav {
+      display: none;
     }
   }
 </style>

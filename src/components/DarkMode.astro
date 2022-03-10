@@ -2,46 +2,44 @@
 
 <script>
   // variables
-  let darkMode = localStorage.getItem('darkMode')
-  const systemPrefs = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const darkModeToggle = document.querySelector('.darkmode-toggle')
+  let darkMode = localStorage.getItem('darkMode');
+  const systemPrefs = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const darkModeToggle = document.querySelector('.darkmode-toggle');
 
   // functions
-  const enableDarkMode = _ => {
-    document.body.classList.add('darkmode')
-    darkModeToggle.textContent = 'Disable Dark Mode'
-    darkModeToggle.setAttribute('aria-pressed', 'true')
-    localStorage.setItem('darkMode', 'enabled')
-  }
+  const enableDarkMode = (_) => {
+    document.body.classList.add('darkmode');
+    darkModeToggle.textContent = 'Disable Dark Mode';
+    darkModeToggle.setAttribute('aria-pressed', 'true');
+    localStorage.setItem('darkMode', 'enabled');
+  };
 
-  const disableDarkMode = _ => {
-    document.body.classList.remove('darkmode')
-    darkModeToggle.textContent = 'Enable Dark Mode'
-    darkModeToggle.setAttribute('aria-pressed', 'false')
-    localStorage.setItem('darkMode', null)
-  }
+  const disableDarkMode = (_) => {
+    document.body.classList.remove('darkmode');
+    darkModeToggle.textContent = 'Enable Dark Mode';
+    darkModeToggle.setAttribute('aria-pressed', 'false');
+    localStorage.setItem('darkMode', null);
+  };
 
   // execution
-  if (darkMode === 'enabled' || systemPrefs) enableDarkMode()
+  if (darkMode === 'enabled' || systemPrefs) enableDarkMode();
 
-  darkModeToggle.addEventListener('click', _ => {
-    darkMode = localStorage.getItem('darkMode')
+  darkModeToggle.addEventListener('click', (_) => {
+    darkMode = localStorage.getItem('darkMode');
 
-    darkMode !== 'enabled'
-      ? enableDarkMode()
-      : disableDarkMode()
-  })
+    darkMode !== 'enabled' ? enableDarkMode() : disableDarkMode();
+  });
 </script>
 
-<style lang="scss">
+<style>
   .darkmode-toggle {
     border: 2px solid var(--secondary-500);
     border-radius: var(--radius-small);
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
 
-    &:hover {
-      color: var(--neutral-100);
-      background-color: var(--secondary-500);
-    }
+  .darkmode-toggle:hover {
+    color: var(--neutral-100);
+    background-color: var(--secondary-500);
   }
 </style>
